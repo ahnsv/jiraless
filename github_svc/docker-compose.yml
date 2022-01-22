@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  github_svc:
+    build: .
+    depends_on:
+      - redis
+    env_file:
+      - .env.test
+    entrypoint:
+      - sh
+      - -c
+      - python -m github_svc.src.entrypoints.redis
+    volumes:
+      - $PWD/github_svc:/usr/app/github_svc
