@@ -1,0 +1,6 @@
+{
+  "name": "notion_svc",
+  "dependencies": {
+    "@notionhq/client": "^0.4.12"
+  }
+}
