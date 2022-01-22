@@ -41,10 +41,6 @@ class GithubClient(HTTPClient[Credential], ABC, metaclass=ABCMeta):
             data: OptionalStr = None,
             json: OptionalAnyDict = None,
     ) -> Union[AnyDict, List[AnyDict]]:
-        self.authenticate()
-        if not headers:
-            headers = {}
-        headers.update(self.header)
         return super().request(
             url=f"{self.base_url}/{url}",
             headers=headers,

@@ -6,6 +6,7 @@ import json
 from src.clients import ClientError
 from src.clients.github import GithubPublicClientCredential, GithubPrivateClientCredential, \
     GithubPrivateClient, GithubPublicClient
+from src.clients.notion import NotionClientCredential, NotionClient
 
 
 @pytest.fixture
@@ -18,6 +19,12 @@ def github_client():
 def github_private_client():
     credential = GithubPrivateClientCredential(username=os.getenv("GITHUB__USERNAME"), token=os.getenv("GITHUB__TOKEN"))
     return GithubPrivateClient(credential=credential)
+
+
+@pytest.fixture
+def notion_client():
+    credential = NotionClientCredential(api_key=os.getenv("NOTION__API_KEY"))
+    return NotionClient(credential=credential)
 
 
 @pytest.mark.parametrize(
@@ -78,3 +85,11 @@ def test_github_client_get_open_issues_and_close(github_private_client):
             data=json.dumps({"state": "closed"}),
         )
         assert close_response["state"] == "closed"
+
+
+def test_notion_client_retrieve_database(notion_client):
+    database_id = "ff6f070c34e5439ebb6967500081ebd4"
+    database_response = notion_client.request(
+        url=f"databases/{database_id}",
+    )
+    assert database_response["object"] == "database"
