@@ -31,7 +31,7 @@ class ClientError(Exception):
 class HTTPClient(ABC, Generic[Credential]):
     def __init__(self, credential: Credential):
         self._client = requests.Session()
-        self._credential = credential
+        self._credential: HTTPClientCredential = credential
 
     @property
     def credential(self):

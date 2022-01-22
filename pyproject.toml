@@ -14,7 +14,17 @@ pytest = "^6.2.5"
 black = "^21.12b0"
 mypy = "^0.931"
 types-requests = "^2.27.6"
+pytest-dotenv = "^0.5.2"
 
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+env_files = [
+    ".env.test",
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
