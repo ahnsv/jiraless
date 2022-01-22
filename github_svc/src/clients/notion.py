@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from src.clients import HTTPClient, HTTPClientCredential
-from src.types import AnyDict, OptionalAnyDict, OptionalStr
+from github_svc.src.clients import HTTPClient, HTTPClientCredential
+from github_svc.src.types import AnyDict, OptionalAnyDict, OptionalStr
 
 
 @dataclass

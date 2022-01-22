@@ -3,10 +3,10 @@ import os
 import pytest
 import json
 
-from src.clients import ClientError
-from src.clients.github import GithubPublicClientCredential, GithubPrivateClientCredential, \
+from github_svc.src.clients import ClientError
+from github_svc.src.clients.github import GithubPublicClientCredential, GithubPrivateClientCredential, \
     GithubPrivateClient, GithubPublicClient
-from src.clients.notion import NotionClientCredential, NotionClient
+from github_svc.src.clients.notion import NotionClientCredential, NotionClient
 
 
 @pytest.fixture

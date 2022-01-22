@@ -6,8 +6,9 @@ authors = ["humphrey <ahnsv@bc.edu>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = ">=3.6.2,<3.10"
+python = ">=3.6.2,<3.9"
 requests = "^2.27.1"
+py-bus = "^0.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

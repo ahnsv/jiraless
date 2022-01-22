@@ -1,8 +1,8 @@
 from abc import ABCMeta, abstractmethod, ABC
 from typing import List, Union
 
-from src.clients import HTTPClient, HTTPClientCredential, Credential
-from src.types import AnyDict, OptionalAnyDict, OptionalStr
+from github_svc.src.clients import HTTPClient, HTTPClientCredential, Credential
+from github_svc.src.types import AnyDict, OptionalAnyDict, OptionalStr
 
 
 class GithubPublicClientCredential(HTTPClientCredential):

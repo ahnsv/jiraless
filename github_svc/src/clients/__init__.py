@@ -4,7 +4,7 @@ from typing import TypeVar, Generic
 
 import requests
 
-from src.types import OptionalAnyDict, OptionalStr, AnyDict
+from github_svc.src.types import OptionalAnyDict, OptionalStr, AnyDict
 
 
 class HTTPMethod(str, Enum):
