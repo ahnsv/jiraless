@@ -50,11 +50,12 @@ class HTTPClient(ABC, Generic[Credential]):
     ) -> AnyDict:
         if not self._credential.authenticated():
             raise RuntimeError()
-
+        
         response = self._client.request(
             method=method, url=url, headers=headers, data=data, json=json
         )
-        if response.status_code != 200:
+                       
+        if not response.ok:
             raise ClientError()
 
         return response.json()
